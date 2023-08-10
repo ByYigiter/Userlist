@@ -24,7 +24,7 @@ export default class UserListComponent extends Component {
 				>
 					Add
 				</button>
-				<FormComponent visible={this.state.visible} hide={this.hide} />
+				<FormComponent visible={this.state.visible} hide={this.hide} addUser={this.props.addUser} />
 				{this.props.users.length > 0 ? (
 					<Table striped>
 						<thead>
