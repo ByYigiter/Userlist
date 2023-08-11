@@ -30,6 +30,24 @@ export default class FormComponent extends Component {
 		this.props.hide();
 	}
 
+	onUpdate(){
+		this.props.editUser(
+			this.props.user.id,
+			this.state.firstName,
+			this.state.lastName,
+			this.state.userName
+		);
+		this.props.hide();
+	}
+
+	componentDidMount(){
+		this.setState({
+			firstName: this.props.user.firstName,
+			lastName: this.props.user.lastName,
+			userName: this.props.user.userName,
+		})
+	}
+
 	render() {
 		return (
 			<div>
@@ -40,6 +58,7 @@ export default class FormComponent extends Component {
 							<FormGroup>
 								<Label for="firstName">FirstName</Label>
 								<Input
+								value={this.state.firstName}
 									onChange={(e) => this.setState({ firstName: e.target.value })}
 									id="firstName"
 									name="firstName"
@@ -50,6 +69,7 @@ export default class FormComponent extends Component {
 							<FormGroup>
 								<Label for="lastName">Last Name</Label>
 								<Input
+									value={this.state.lastName}
 									onChange={(e) => this.setState({ lastName: e.target.value })}
 									id="lastName"
 									name="lastName"
@@ -60,8 +80,9 @@ export default class FormComponent extends Component {
 							<FormGroup>
 								<Label for="uname">User Name</Label>
 								<Input
+									value={this.state.userName}
 									onChange={(e) => this.setState({ userName: e.target.value })}
-									id="userName"
+									id="uname"
 									name="userName"
 									placeholder="User Name"
 									type="text"
@@ -70,9 +91,10 @@ export default class FormComponent extends Component {
 						</Form>
 					</ModalBody>
 					<ModalFooter>
-						<button className="btn btn-success" onClick={() => this.onSubmit()}>
-							Submit
-						</button>
+						{this.props.user.id ? <button className="btn btn-success" onClick={() => this.onUpdate()}>Update</button>:
+												<button className="btn btn-success" onClick={() => this.onSubmit()}>
+												Submit
+											</button>}
 						<button
 							className="btn btn-success"
 							onClick={() => this.props.hide()}
