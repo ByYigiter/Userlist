@@ -10,7 +10,6 @@ import {
 	ModalHeader,
 } from "reactstrap";
 
-
 export default class FormComponent extends Component {
 	// eslint-disable-next-line no-useless-constructor
 	constructor(props) {
@@ -22,12 +21,13 @@ export default class FormComponent extends Component {
 		};
 	}
 
-	onSubmit(){
+	onSubmit() {
 		this.props.addUser(
 			this.state.firstName,
 			this.state.lastName,
-			this.state.userName);
-			this.props.hide()
+			this.state.userName
+		);
+		this.props.hide();
 	}
 
 	render() {
@@ -39,7 +39,8 @@ export default class FormComponent extends Component {
 						<Form>
 							<FormGroup>
 								<Label for="firstName">FirstName</Label>
-								<Input onChange={(e)=>this.setState({firstName:e.target.value})}
+								<Input
+									onChange={(e) => this.setState({ firstName: e.target.value })}
 									id="firstName"
 									name="firstName"
 									placeholder="First Name"
@@ -48,7 +49,8 @@ export default class FormComponent extends Component {
 							</FormGroup>
 							<FormGroup>
 								<Label for="lastName">Last Name</Label>
-								<Input onChange={(e)=>this.setState({lastName:e.target.value})}
+								<Input
+									onChange={(e) => this.setState({ lastName: e.target.value })}
 									id="lastName"
 									name="lastName"
 									placeholder="Last Name"
@@ -57,7 +59,8 @@ export default class FormComponent extends Component {
 							</FormGroup>
 							<FormGroup>
 								<Label for="uname">User Name</Label>
-								<Input onChange={(e)=>this.setState({userName:e.target.value})}
+								<Input
+									onChange={(e) => this.setState({ userName: e.target.value })}
 									id="userName"
 									name="userName"
 									placeholder="User Name"
@@ -67,7 +70,9 @@ export default class FormComponent extends Component {
 						</Form>
 					</ModalBody>
 					<ModalFooter>
-						<button className="btn btn-success" onClick={()=> this.onSubmit()}>Submit</button>
+						<button className="btn btn-success" onClick={() => this.onSubmit()}>
+							Submit
+						</button>
 						<button
 							className="btn btn-success"
 							onClick={() => this.props.hide()}
