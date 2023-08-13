@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Navbar, NavbarBrand } from "reactstrap";
 import UserListComponent from "../component/UserListComponent";
 import { v4 as uuidv4 } from "uuid";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
 export default class HomePage extends Component {
 	constructor(props) {
 		super(props);
@@ -37,8 +37,6 @@ export default class HomePage extends Component {
 		this.addUser = this.addUser.bind(this);
 		this.deleteUser = this.deleteUser.bind(this);
 		this.editUser = this.editUser.bind(this);
-		
-		
 	}
 
 	addUser = (firstName, lastName, userName) => {
@@ -51,20 +49,20 @@ export default class HomePage extends Component {
 				username: userName,
 			});
 			this.setState({ users });
-			toast( ` "${firstName}" kullanıcısi eklendi`)
+			toast(` "${firstName}" kullanıcısi eklendi`);
 		} else {
 			alert("Please fill all the fields");
 		}
 	};
 
-	deleteUser=(obj) =>{
+	deleteUser = (obj) => {
 		const users = this.state.users.filter((user) => user.id !== obj.id);
 		this.setState({ users });
-		toast( ` "${obj.firstName}" kullanıcısi silindi`)
-	}
+		toast(` "${obj.firstName}" kullanıcısi silindi`);
+	};
 
-	editUser =(id,firstName,lastName,userName)=>{
-		if(id,firstName,lastName,userName){
+	editUser = (id, firstName, lastName, userName) => {
+		if ((id, firstName, lastName, userName)) {
 			const users = this.state.users.map((user) => {
 				if (user.id === id) {
 					user.firstName = firstName;
@@ -75,20 +73,23 @@ export default class HomePage extends Component {
 			});
 			this.setState({ users });
 		}
-	}
+	};
 
 	render() {
 		return (
 			<div>
-				<ToastContainer/>
+				<ToastContainer />
 				<Navbar color="light">
 					<div className="container">
 						<NavbarBrand href="/">reactstrap</NavbarBrand>
 					</div>
 				</Navbar>
-				<UserListComponent users={this.state.users} addUser={this.addUser}
+				<UserListComponent
+					users={this.state.users}
+					addUser={this.addUser}
 					deleteUser={this.deleteUser}
-					editUser ={this.editUser} />
+					editUser={this.editUser}
+				/>
 			</div>
 		);
 	}

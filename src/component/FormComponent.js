@@ -30,7 +30,7 @@ export default class FormComponent extends Component {
 		this.props.hide();
 	}
 
-	onUpdate(){
+	onUpdate() {
 		this.props.editUser(
 			this.props.user.id,
 			this.state.firstName,
@@ -40,12 +40,12 @@ export default class FormComponent extends Component {
 		this.props.hide();
 	}
 
-	componentDidMount(){
+	componentDidMount() {
 		this.setState({
 			firstName: this.props.user.firstName,
 			lastName: this.props.user.lastName,
 			userName: this.props.user.userName,
-		})
+		});
 	}
 
 	render() {
@@ -58,7 +58,7 @@ export default class FormComponent extends Component {
 							<FormGroup>
 								<Label for="firstName">FirstName</Label>
 								<Input
-								value={this.state.firstName}
+									value={this.state.firstName}
 									onChange={(e) => this.setState({ firstName: e.target.value })}
 									id="firstName"
 									name="firstName"
@@ -91,10 +91,21 @@ export default class FormComponent extends Component {
 						</Form>
 					</ModalBody>
 					<ModalFooter>
-						{this.props.user.id ? <button className="btn btn-success" onClick={() => this.onUpdate()}>Update</button>:
-												<button className="btn btn-success" onClick={() => this.onSubmit()}>
-												Submit
-											</button>}
+						{this.props.user.id ? (
+							<button
+								className="btn btn-success"
+								onClick={() => this.onUpdate()}
+							>
+								Update
+							</button>
+						) : (
+							<button
+								className="btn btn-success"
+								onClick={() => this.onSubmit()}
+							>
+								Submit
+							</button>
+						)}
 						<button
 							className="btn btn-success"
 							onClick={() => this.props.hide()}

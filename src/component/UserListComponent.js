@@ -8,7 +8,7 @@ export default class UserListComponent extends Component {
 		super(props);
 		this.state = {
 			visible: false,
-			user :{},
+			user: {},
 		};
 		this.hide = this.hide.bind(this);
 	}
@@ -17,10 +17,10 @@ export default class UserListComponent extends Component {
 		this.setState({ visible: false });
 	}
 
-	getElementById(value){
+	getElementById(value) {
 		this.setState({
-			user:value,
-			visible:true,
+			user: value,
+			visible: true,
 		});
 	}
 
@@ -29,19 +29,19 @@ export default class UserListComponent extends Component {
 			<div className="container mt-5">
 				<button
 					className="btn btn-primary"
-					onClick={() => this.setState({user:{}, visible: true })}
+					onClick={() => this.setState({ user: {}, visible: true })}
 				>
 					Add
 				</button>
-					{this.state.visible ? (
-							<FormComponent
-							visible={this.state.visible}
-							hide={this.hide}
-							addUser={this.props.addUser}
-							user={this.state.user}
-							editUser={this.props.editUser}
-						/>
-					):null}
+				{this.state.visible ? (
+					<FormComponent
+						visible={this.state.visible}
+						hide={this.hide}
+						addUser={this.props.addUser}
+						user={this.state.user}
+						editUser={this.props.editUser}
+					/>
+				) : null}
 				{this.props.users.length > 0 ? (
 					<Table striped>
 						<thead>
@@ -61,10 +61,19 @@ export default class UserListComponent extends Component {
 									<td>{user.lastName}</td>
 									<td>{user.username}</td>
 									<td>
-										<button className="btn btn-warning"
-										onClick={()=> this.getElementById(user)}>Edit</button> &nbsp;
-										<button className="btn btn-danger" 
-											onClick={() => this.props.deleteUser(user)}>Delete</button>
+										<button
+											className="btn btn-warning"
+											onClick={() => this.getElementById(user)}
+										>
+											Edit
+										</button>{" "}
+										&nbsp;
+										<button
+											className="btn btn-danger"
+											onClick={() => this.props.deleteUser(user)}
+										>
+											Delete
+										</button>
 									</td>
 								</tr>
 							))}
