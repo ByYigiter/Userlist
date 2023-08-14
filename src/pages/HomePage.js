@@ -12,25 +12,25 @@ export default class HomePage extends Component {
 					id: uuidv4(),
 					firstName: "Mark",
 					lastName: "Otto",
-					username: "@mdo",
+					userName: "@mdo",
 				},
 				{
 					id: uuidv4(),
 					firstName: "Jacob",
 					lastName: "Thornton",
-					username: "@fat",
+					userName: "@fat",
 				},
 				{
 					id: uuidv4(),
 					firstName: "Larry",
 					lastName: "the Bird",
-					username: "@twitter",
+					userName: "@twitter",
 				},
 				{
 					id: uuidv4(),
 					firstName: "Larry",
 					lastName: "the Bird",
-					username: "@twitter",
+					userName: "@twitter",
 				},
 			],
 		};
@@ -46,7 +46,7 @@ export default class HomePage extends Component {
 				id: uuidv4(),
 				firstName: firstName,
 				lastName: lastName,
-				username: userName,
+				userName: userName,
 			});
 			this.setState({ users });
 			toast(` "${firstName}" kullanıcısi eklendi`);
@@ -67,7 +67,7 @@ export default class HomePage extends Component {
 				if (user.id === id) {
 					user.firstName = firstName;
 					user.lastName = lastName;
-					user.username = userName;
+					user.userName = userName;
 				}
 				return user;
 			});

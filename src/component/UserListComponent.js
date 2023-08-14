@@ -49,7 +49,7 @@ export default class UserListComponent extends Component {
 								<th>#</th>
 								<th>First Name</th>
 								<th>Last Name</th>
-								<th>Username</th>
+								<th>User Name</th>
 								<th>####</th>
 							</tr>
 						</thead>
@@ -59,7 +59,7 @@ export default class UserListComponent extends Component {
 									<th scope="row">{user.id}</th>
 									<td>{user.firstName}</td>
 									<td>{user.lastName}</td>
-									<td>{user.username}</td>
+									<td>{user.userName}</td>
 									<td>
 										<button
 											className="btn btn-warning"
