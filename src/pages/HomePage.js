@@ -81,7 +81,7 @@ export default class HomePage extends Component {
 				<ToastContainer />
 				<Navbar color="light">
 					<div className="container">
-						<NavbarBrand href="/">reactstrap</NavbarBrand>
+						<NavbarBrand href="/">User List</NavbarBrand>
 					</div>
 				</Navbar>
 				<UserListComponent
